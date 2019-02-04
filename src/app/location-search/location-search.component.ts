@@ -54,6 +54,14 @@ export class LocationSearchComponent implements OnInit {
   }
 
   onSubmit(): void {
+
+    if ( this.locationForm.controls.cityName.errors ) {
+      this.locationForm.setValue({
+        cityName: 'Kansas City',
+        stateCode: 'MO'
+      });
+    }
+
     this.http.get('http://api.wunderground.com/api/4bbbc25f4f5946dd/conditions/q/'
       + this.locationForm.controls.stateCode.value + '/' + this.locationForm.controls.cityName.value
       + '.json').subscribe(data => {
