@@ -18,6 +18,7 @@
             <span *ngIf="locationForm.controls.cityName.errors" >
               City Name is required
             </span>
+		     <span *ngIf="currentData.response.error">{{currentData.response.error.description}}</span>
             </span>
           </div>
         </td>
