@@ -1,0 +1,27 @@
+<div class="panel panel-default">
+  <div class="panel panel-heading">
+    <b>Hourly Forecast</b>
+  </div>
+
+  <div class="panel-body">
+    <div class="row" >
+      <div *ngFor="let hourlyDataEle of hourlyData.hourly_forecast; let i= index">
+      <div class="panel panel-default col-md-2" *ngIf="i<6">
+        <div class="panel panel-heading"><b>{{hourlyDataEle.FCTTIME.pretty}}</b></div>
+        <div class="panel-body">
+          <table>
+            <tr>
+              <td rowspan="3"><img src='{{hourlyData.hourly_forecast[0].icon_url}}'></td>
+              <td>{{hourlyData.hourly_forecast[0].wx}}</td>
+            </tr>
+            <tr><td>{{hourlyData.hourly_forecast[0].temp.english}}(F)   {{hourlyData.hourly_forecast[0].temp.metric}}(C)</td></tr>
+            <tr><td>{{hourlyData.hourly_forecast[0].pretty}}</td></tr>
+            <tr><td colspan="2">{{hourlyData.hourly_forecast[0].pretty}}</td></tr>
+          </table>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+</div>

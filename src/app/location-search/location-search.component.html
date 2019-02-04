@@ -1,0 +1,41 @@
+<div class="container">
+  <form class="form-horizontal" [formGroup]="locationForm" (ngSubmit)="onSubmit()">
+    <table class="table">
+      <tr>
+        <td>
+          <div class="form-group col-md-10" >
+            <label >State Code</label>
+            <select class="form-control" formControlName="stateCode">
+              <option *ngFor="let statecode of statecodes" value={{statecode}}>{{statecode}}</option>
+            </select>
+          </div>
+        </td>
+        <td>
+          <div class="form-group col-md-10" [ngClass]="{'has-error': locationForm.controls.cityName.errors }">
+            <label for="CityName">City Name</label>
+            <input id="cityName" type="text" class="form-control" formControlName="cityName" placeholder="Kansas City">
+            <span class="help-block">
+            <span *ngIf="locationForm.controls.cityName.errors" >
+              City Name is required
+            </span>
+            </span>
+          </div>
+        </td>
+        <td>
+          <div class="form-group">
+            <br>
+            <button class="btn btn-primary">Submit</button>
+          </div>
+        </td>
+        <td>
+      </tr>
+    </table>
+  </form>
+</div>
+<br>
+
+<div class="display_weather">
+  <app-display-weather [currentData]="currentData"></app-display-weather>
+  <app-hourly-dislay [hourlyData]="hourlyData"></app-hourly-dislay>
+</div>
+
