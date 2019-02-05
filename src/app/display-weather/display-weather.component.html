@@ -1,15 +1,24 @@
+<!-- For Displaying current weather details, Using bootstrap panel groups -->
 <div class="panel panel-default">
+
+  <!-- Adding the location as header for the panel -->
   <div class="panel panel-heading">
     <b>Current Forecast for {{currentData.current_observation.observation_location.full}}</b>
   </div>
+
+  <!-- Displaying 4 parameters as separate panels in the main panel -->
   <div class="table">
-    <table>
+    <table class="current_weather">
+
+      <!-- Panel headers -->
       <tr>
         <th>Temperature</th>
         <th>Wind(km/hr)</th>
         <th>Pressure(in)</th>
         <th>Humidity</th>
       </tr>
+
+      <!-- Icons are displayed for each panel body content-->
       <tr>
         <td>
           <img src="https://cdn2.iconfinder.com/data/icons/weather-collection/1008/celsius_and_fahrenheit-512.png">
@@ -24,12 +33,15 @@
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFWQiTqEnB7B6vr9Iu9UiAKcd3ZNR3WUDwe0EmXMoWGTz4bW5J2w">
         </td>
       </tr>
+
+      <!-- Adding the weather details below the icon as a separate row -->
       <tr>
         <td><p>{{currentData.current_observation.temperature_string}}</p></td>
         <td><p>{{currentData.current_observation.wind_kph}}</p></td>
         <td><p>{{currentData.current_observation.pressure_in}}</p></td>
         <td><p>{{currentData.current_observation.relative_humidity}}</p></td>
       </tr>
+
     </table>
   </div>
 

@@ -4,11 +4,11 @@ div {
 
 .title {
   align-content: center;
-  align-items: center;
   display: flex;
   justify-content: center;
   padding:8px 20px;
   color: rgba(0,0,0,.54);
+  align-items: center;
   background: rgba(0,0,0,.10);
 }
 
@@ -30,10 +30,10 @@ div {
 
 .content {
   background-image: url("https://png.pngtree.com/thumb_back/fw800/back_pic/00/02/42/3156177df25e527.jpg");
-  background-position: center center;
-  background-repeat: no-repeat;
   background-attachment:fixed;
-  background-size: cover;
-  background-color: #464646;
+  background-position: center center;
   padding: 5px 5px 5px 5px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #464646;
 }

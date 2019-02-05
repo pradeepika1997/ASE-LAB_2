@@ -1,7 +1,11 @@
+<!-- Displaying Form Group here using Relative Forms -->
 <div class="container">
   <form class="form-horizontal" [formGroup]="locationForm" (ngSubmit)="onSubmit()">
     <table class="table">
       <tr>
+
+        <!-- Displaying all three form elements inline -->
+        <!-- Drop down list is used for State code selection -->
         <td>
           <div class="form-group col-md-10" >
             <label >State Code</label>
@@ -10,6 +14,8 @@
             </select>
           </div>
         </td>
+
+        <!-- Text field is added next to the State Code  with validations and default value -->
         <td>
           <div class="form-group col-md-10" [ngClass]="{'has-error': locationForm.controls.cityName.errors }">
             <label for="CityName">City Name</label>
@@ -18,10 +24,12 @@
             <span *ngIf="locationForm.controls.cityName.errors" >
               City Name is required
             </span>
-		     <span *ngIf="currentData.response.error">{{currentData.response.error.description}}</span>
+              <span *ngIf="currentData.response.error">{{currentData.response.error.description}}</span>
             </span>
           </div>
         </td>
+
+        <!-- Button is added using bootstrap -->
         <td>
           <div class="form-group">
             <br>
@@ -29,14 +37,21 @@
           </div>
         </td>
         <td>
+
       </tr>
     </table>
   </form>
 </div>
 <br>
 
+<!-- Thought of adding routing elements but flow got missed so reverted back -->
 <div class="display_weather">
+
+  <!-- For displaying Current weather details based on the Form values -->
   <app-display-weather [currentData]="currentData"></app-display-weather>
+
+  <!-- For Displaying Hourly weather forecast details for next 5 hours -->
   <app-hourly-dislay [hourlyData]="hourlyData"></app-hourly-dislay>
+
 </div>
 

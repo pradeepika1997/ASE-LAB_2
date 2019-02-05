@@ -8,6 +8,7 @@ import {FormGroup} from '@angular/forms';
 })
 export class DisplayWeatherComponent implements OnInit {
 
+  //Doing property data binding from parent to child
   @Input() currentData: any;
 
   constructor() {}

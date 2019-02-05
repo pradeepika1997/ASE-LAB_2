@@ -1,10 +1,16 @@
+<!-- Displaying hourly details with each hour in a separate panel -->
 <div class="panel panel-default">
+
+  <!-- Header for the main panel -->
   <div class="panel panel-heading">
     <b>Hourly Forecast</b>
   </div>
 
+  <!-- Main panel body contains 5 separate panels with each hour weather forecast details -->
   <div class="panel-body">
     <div class="row" >
+
+      <!-- Using ng for loop to iterate over JSON data and display the data  and also limiting the iterating index count -->
       <div *ngFor="let hourlyDataEle of hourlyData.hourly_forecast; let i= index">
       <div class="panel panel-default col-md-2" *ngIf="i<6">
         <div class="panel panel-heading"><b>{{hourlyDataEle.FCTTIME.pretty}}</b></div>

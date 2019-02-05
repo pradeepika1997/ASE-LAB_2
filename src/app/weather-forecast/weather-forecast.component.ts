@@ -6,11 +6,9 @@ import { LocationSearchComponent} from '../location-search/location-search.compo
   templateUrl: './weather-forecast.component.html',
   styleUrls: ['./weather-forecast.component.css']
 })
+
 export class WeatherForecastComponent implements OnInit {
-
   constructor() { }
-
   ngOnInit() {
   }
-
 }

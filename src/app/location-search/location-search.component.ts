@@ -30,6 +30,7 @@ export class LocationSearchComponent implements OnInit {
   public currentData: any;
   public hourlyData: any;
 
+  // Displaying all US State codes in a drop down list instead of text fields
   statecodes = ['AL', 'AK', 'AS', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FM', 'FL',
     'GA', 'GU', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MH', 'MD', 'MA',
     'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'MP',
@@ -39,15 +40,19 @@ export class LocationSearchComponent implements OnInit {
   }
   ngOnInit(): void {
 
+    // This function is called when the component is created.
+    // Initialising the form group and setting the fields to the default value and including validators
     this.locationForm = this.fb.group({
       stateCode: ['MO'],
       cityName: ['Kansas City', Validators.required]
     });
 
+    // Doing http GET request to get the JSON current weather details data
     this.http.get('http://api.wunderground.com/api/4bbbc25f4f5946dd/conditions/q/MO/Kansas%20City.json').subscribe(data => {
       this.currentData = data;
     });
 
+    // Doing http GET request to get the JSON next 5 hours hourly weather forecast data.
     this.http.get('http://api.wunderground.com/api/36b799dc821d5836/hourly/q/MO/Kansas%20City.json').subscribe(data => {
       this.hourlyData = data;
     });
@@ -55,6 +60,7 @@ export class LocationSearchComponent implements OnInit {
 
   onSubmit(): void {
 
+    // Default values are set in case of any validation errors
     if ( this.locationForm.controls.cityName.errors ) {
       this.locationForm.setValue({
         cityName: 'Kansas City',
@@ -62,12 +68,14 @@ export class LocationSearchComponent implements OnInit {
       });
     }
 
+    // Doing http GET request to get current weather details in JSON format based on submitted form details
     this.http.get('http://api.wunderground.com/api/4bbbc25f4f5946dd/conditions/q/'
       + this.locationForm.controls.stateCode.value + '/' + this.locationForm.controls.cityName.value
       + '.json').subscribe(data => {
       this.currentData = data;
     });
 
+    // Doing http GET request to get hourly weather details in JSON format based on submitted form details
     this.http.get('http://api.wunderground.com/api/36b799dc821d5836/hourly/q/'
       + this.locationForm.controls.stateCode.value + '/' + this.locationForm.controls.cityName.value
       + '.json').subscribe(data => {
